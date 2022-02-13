@@ -1,0 +1,2 @@
+FLOAT_FISHING = 'e'
+THROW_BAIT = 's'
