@@ -2,6 +2,7 @@ import logging
 
 import pyautogui
 import time
+import random
 import constants
 from utils import resource_path
 
@@ -11,7 +12,7 @@ throw_bait_img = resource_path('img/throw_bait.png')
 
 
 def is_on_screen(img):
-    return pyautogui.locateOnScreen(img, confidence=0.8) is not None
+    return pyautogui.locateOnScreen(img, confidence=0.7) is not None
 
 
 def fish(buffs_enabled=True):
@@ -21,8 +22,9 @@ def fish(buffs_enabled=True):
         if is_on_screen(exclamation_mark_img):
             pyautogui.press(constants.FLOAT_FISHING)
             print("Fish caught")
-
-            time.sleep(7)
+            delay = random.randint (670,720)/100
+            print("Waiting for " + str(delay) + " seconds")
+            time.sleep(delay)
 
             if buffs_enabled:
                 throw_bait()
